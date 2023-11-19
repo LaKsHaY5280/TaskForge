@@ -21,7 +21,7 @@ const page = () => {
         />
         <div className=" bg-white p-[2px] mt-6 rounded-xl bg-gradient-to-r from-primary to-brand-primaryBlue sm:w-[300px]">
           <Button
-            variant="secondary"
+            variant="btn-secondary"
             className=" w-full rounded-[10px] p-6 text-2xl bg-background"
           >
             Get Task Forge Free
@@ -64,7 +64,7 @@ const page = () => {
           <Image src={Cal} alt="Banner" className="rounded-2xl" />
         </div>
       </section>
-      <section className="relative">
+      <section className="relative" id="testimonial">
         <div className="w-full blur-[120px] rounded-full h-32 absolute bg-brand-primaryPurple/50 -z-100 top-56 " />
         <div className="mt-20 px-4 sm:px-6  flex flex-col overflow-x-hidden overflow-visible ">
           <TitleSection
@@ -117,7 +117,7 @@ const page = () => {
           ))}
         </div>
       </section>
-      <section className="mt-20 px-4 sm:px-6 ">
+      <section className="mt-20 px-4 sm:px-6 " id="pricing">
         <TitleSection
           title="The Perfect Plan For You"
           subheading="Experience all the benefits of our platform. Select a plan that suits your needs and take your productivity to new heights."

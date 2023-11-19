@@ -7,6 +7,7 @@ import client2 from "./client2.png";
 import client3 from "./client3.png";
 import client4 from "./client4.png";
 import client5 from "./client5.png";
+import Logo from "./cypresslogo.svg";
 
 export {
   Banner,
@@ -18,4 +19,5 @@ export {
   client3,
   client4,
   client5,
+  Logo,
 };
