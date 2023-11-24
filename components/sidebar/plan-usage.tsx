@@ -31,24 +31,11 @@ const PlanUsage: React.FC<PlanUsageProps> = ({
   return (
     <article className="mb-4">
       {subscription?.status !== "active" && (
-        <div
-          className="flex 
-          gap-2
-          text-muted-foreground
-          mb-2
-          items-center
-        "
-        >
+        <div className="flex  gap-2 text-muted-foreground mb-2 items-center ">
           <div className="h-4 w-4">
             <CypressDiamondIcon />
           </div>
-          <div
-            className="flex 
-        justify-between 
-        w-full 
-        items-center
-        "
-          >
+          <div className="flex  justify-between  w-full  items-center ">
             <div>Free Plan</div>
             <small>{usagePercentage.toFixed(0)}% / 100%</small>
           </div>

@@ -204,7 +204,7 @@ const SettingsForm = () => {
         </Label>
         <Input
           name="workspaceName"
-          value={workspaceDetails ? workspaceDetails.title : ''}
+          value={workspaceDetails ? workspaceDetails.title : ""}
           placeholder="Workspace Name"
           onChange={workspaceNameChange}
         />
@@ -220,9 +220,9 @@ const SettingsForm = () => {
           accept="image/*"
           placeholder="Workspace Logo"
           onChange={onChangeWorkspaceLogo}
-          disabled={uploadingLogo || subscription?.status !== 'active'}
+          disabled={uploadingLogo || subscription?.status !== "active"}
         />
-        {subscription?.status !== 'active' && (
+        {subscription?.status !== "active" && (
           <small className="text-muted-foreground">
             To customize your workspace, you need to be on a Pro Plan
           </small>
@@ -230,24 +230,14 @@ const SettingsForm = () => {
       </div>
       <>
         <Label htmlFor="permissions">Permissions</Label>
-        <Select
-          onValueChange={onPermissionsChange}
-          value={permissions}
-        >
+        <Select onValueChange={onPermissionsChange} value={permissions}>
           <SelectTrigger className="w-full h-26 -mt-3">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectItem value="private">
-                <div
-                  className="p-2
-                  flex
-                  gap-4
-                  justify-center
-                  items-center
-                "
-                >
+                <div className="p-2 flex gap-4 justify-center items-center ">
                   <Lock />
                   <article className="text-left flex flex-col">
                     <span>Private</span>
@@ -271,7 +261,7 @@ const SettingsForm = () => {
           </SelectContent>
         </Select>
 
-        {permissions === 'shared' && (
+        {permissions === "shared" && (
           <div>
             <CollaboratorSearch
               existingCollaborators={collaborators}
@@ -279,34 +269,20 @@ const SettingsForm = () => {
                 addCollaborator(user);
               }}
             >
-              <Button
-                type="button"
-                className="text-sm mt-4"
-              >
+              <Button type="button" className="text-sm mt-4">
                 <Plus />
                 Add Collaborators
               </Button>
             </CollaboratorSearch>
             <div className="mt-4">
               <span className="text-sm text-muted-foreground">
-                Collaborators {collaborators.length || ''}
+                Collaborators {collaborators.length || ""}
               </span>
-              <ScrollArea
-                className="
-            h-[120px]
-            overflow-y-scroll
-            w-full
-            rounded-md
-            border
-            border-muted-foreground/20"
-              >
+              <ScrollArea className=" h-[120px] w-full rounded-md border border-muted-foreground/20">
                 {collaborators.length ? (
                   collaborators.map((c) => (
                     <div
-                      className="p-4 flex
-                      justify-between
-                      items-center
-                "
+                      className="p-4 flex justify-between items-center "
                       key={c.id}
                     >
                       <div className="flex gap-4 items-center">
@@ -314,16 +290,7 @@ const SettingsForm = () => {
                           <AvatarImage src="/avatars/7.png" />
                           <AvatarFallback>PJ</AvatarFallback>
                         </Avatar>
-                        <div
-                          className="text-sm 
-                          gap-2
-                          text-muted-foreground
-                          overflow-hidden
-                          overflow-ellipsis
-                          sm:w-[300px]
-                          w-[140px]
-                        "
-                        >
+                        <div className="text-sm  gap-2 text-muted-foreground overflow-hidden overflow-ellipsis sm:w-[300px] w-[140px] ">
                           {c.email}
                         </div>
                       </div>
@@ -336,16 +303,7 @@ const SettingsForm = () => {
                     </div>
                   ))
                 ) : (
-                  <div
-                    className="absolute
-                  right-0 left-0
-                  top-0
-                  bottom-0
-                  flex
-                  justify-center
-                  items-center
-                "
-                  >
+                  <div className="absolute right-0 left-0 top-0 bottom-0 flex justify-center items-center ">
                     <span className="text-muted-foreground text-sm">
                       You have no collaborators
                     </span>
@@ -355,26 +313,22 @@ const SettingsForm = () => {
             </div>
           </div>
         )}
-        <Alert variant={'destructive'}>
+        <Alert variant={"destructive"}>
           <AlertDescription>
             Warning! deleting you workspace will permanantly delete all data
             related to this workspace.
           </AlertDescription>
           <Button
             type="submit"
-            size={'sm'}
-            variant={'destructive'}
-            className="mt-4 
-            text-sm
-            bg-destructive/40 
-            border-2 
-            border-destructive"
+            size={"sm"}
+            variant={"destructive"}
+            className="mt-4  text-sm bg-destructive/40  border-2  border-destructive"
             onClick={async () => {
               if (!workspaceId) return;
               await deleteWorkspace(workspaceId);
-              toast({ title: 'Successfully deleted your workspae' });
-              dispatch({ type: 'DELETE_WORKSPACE', payload: workspaceId });
-              router.replace('/dashboard');
+              toast({ title: "Successfully deleted your workspae" });
+              dispatch({ type: "DELETE_WORKSPACE", payload: workspaceId });
+              router.replace("/dashboard");
             }}
           >
             Delete Workspace
@@ -386,14 +340,14 @@ const SettingsForm = () => {
         <Separator />
         <div className="flex items-center">
           <Avatar>
-            <AvatarImage src={''} />
+            <AvatarImage src={""} />
             <AvatarFallback>
               <CypressProfileIcon />
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col ml-6">
             <small className="text-muted-foreground cursor-not-allowed">
-              {user ? user.email : ''}
+              {user ? user.email : ""}
             </small>
             <Label
               htmlFor="profilePicture"
@@ -421,8 +375,8 @@ const SettingsForm = () => {
         </p>
         <Separator />
         <p className="text-muted-foreground">
-          You are currently on a{' '}
-          {subscription?.status === 'active' ? 'Pro' : 'Free'} Plan
+          You are currently on a{" "}
+          {subscription?.status === "active" ? "Pro" : "Free"} Plan
         </p>
         <Link
           href="/"
@@ -431,12 +385,12 @@ const SettingsForm = () => {
         >
           View Plans <ExternalLink size={16} />
         </Link>
-        {subscription?.status === 'active' ? (
+        {subscription?.status === "active" ? (
           <div>
             <Button
               type="button"
               size="sm"
-              variant={'secondary'}
+              variant={"secondary"}
               disabled={loadingPortal}
               className="text-sm"
               // onClick={redirectToCustomerPortal}
@@ -449,7 +403,7 @@ const SettingsForm = () => {
             <Button
               type="button"
               size="sm"
-              variant={'secondary'}
+              variant={"secondary"}
               className="text-sm"
               onClick={() => setOpen(true)}
             >

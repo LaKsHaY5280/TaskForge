@@ -37,17 +37,7 @@ const UserCard: React.FC<UserCardProps> = async ({ subscription }) => {
   };
 
   return (
-    <article
-      className="hidden
-      sm:flex 
-      justify-between 
-      items-center 
-      px-4 
-      py-2 
-      dark:bg-Neutrals/neutrals-12
-      rounded-3xl
-  "
-    >
+    <article className="hidden sm:flex  justify-between  items-center  px-4  py-2  dark:bg-Neutrals/neutrals-12 rounded-3xl ">
       <aside className="flex justify-center items-center gap-2">
         <Avatar>
           <AvatarImage src={profile.avatarUrl} />
@@ -57,14 +47,9 @@ const UserCard: React.FC<UserCardProps> = async ({ subscription }) => {
         </Avatar>
         <div className="flex flex-col">
           <span className="text-muted-foreground">
-            {subscription?.status === 'active' ? 'Pro Plan' : 'Free Plan'}
+            {subscription?.status === "active" ? "Pro Plan" : "Free Plan"}
           </span>
-          <small
-            className="w-[100px] 
-          overflow-hidden 
-          overflow-ellipsis
-          "
-          >
+          <small className="w-[100px]  overflow-hidden  overflow-ellipsis ">
             {profile.email}
           </small>
         </div>

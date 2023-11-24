@@ -43,10 +43,10 @@ const CollaboratorSearch: React.FC<CollaboratorSearchProps> = ({
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (timerRef) clearTimeout(timerRef.current);
-    // timerRef.current = setTimeout(async () => {
-    //   const res = await getUsersFromSearch(e.target.value);
-    //   setSearchResults(res);
-    // }, 450);
+    timerRef.current = setTimeout(async () => {
+      const res = await getUsersFromSearch(e.target.value);
+      setSearchResults(res);
+    }, 450);
   };
 
   const addCollaborator = (user: User) => {
@@ -66,13 +66,7 @@ const CollaboratorSearch: React.FC<CollaboratorSearchProps> = ({
             </p>
           </SheetDescription>
         </SheetHeader>
-        <div
-          className="flex justify-center
-          items-center
-          gap-2
-          mt-2
-        "
-        >
+        <div className="flex justify-center items-center gap-2 mt-2 ">
           <Search />
           <Input
             name="name"
@@ -81,13 +75,7 @@ const CollaboratorSearch: React.FC<CollaboratorSearchProps> = ({
             onChange={onChangeHandler}
           />
         </div>
-        <ScrollArea
-          className="mt-6
-          overflow-y-scroll
-          w-full
-          rounded-md
-        "
-        >
+        <ScrollArea className="mt-6  w-full rounded-md ">
           {searchResults
             .filter(
               (result) =>
@@ -106,16 +94,9 @@ const CollaboratorSearch: React.FC<CollaboratorSearchProps> = ({
                     <AvatarImage src="/avatars/7.png" />
                     <AvatarFallback>CP</AvatarFallback>
                   </Avatar>
-                  <div
-                    className="text-sm 
-                  gap-2 
-                  overflow-hidden 
-                  overflow-ellipsis 
-                  w-[180px] 
-                  text-muted-foreground
-                  "
-                  >
+                  <div className="text-sm  gap-2  overflow-hidden  overflow-ellipsis  w-[180px]  text-muted-foregroun">
                     {user.email}
+                    console.log(user.id)
                   </div>
                 </div>
                 <Button

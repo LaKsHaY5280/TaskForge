@@ -308,38 +308,29 @@ const Dropdown: React.FC<DropdownProps> = ({
     >
       <AccordionTrigger
         id={listType}
-        className="hover:no-underline 
-        p-2 
-        dark:text-muted-foreground 
-        text-sm"
-        disabled={listType === 'file'}
+        className="hover:no-underline p-2 dark:text-muted-foreground text-sm"
+        disabled={listType === "file"}
       >
         <div className={groupIdentifies}>
-          <div
-            className="flex 
-          gap-4 
-          items-center 
-          justify-center 
-          overflow-hidden"
-          >
+          <div className="flex gap-4 items-center justify-center overflow-hidden">
             <div className="relative">
               <EmojiPicker getValue={onChangeEmoji}>{iconId}</EmojiPicker>
             </div>
             <input
               type="text"
-              value={listType === 'folder' ? folderTitle : fileTitle}
+              value={listType === "folder" ? folderTitle : fileTitle}
               className={clsx(
-                'outline-none overflow-hidden w-[140px] text-Neutrals/neutrals-7',
+                "outline-none overflow-hidden w-[140px] text-Neutrals/neutrals-7",
                 {
-                  'bg-muted cursor-text': isEditing,
-                  'bg-transparent cursor-pointer': !isEditing,
+                  "bg-muted cursor-text": isEditing,
+                  "bg-transparent cursor-pointer": !isEditing,
                 }
               )}
               readOnly={!isEditing}
               onDoubleClick={handleDoubleClick}
               onBlur={handleBlur}
               onChange={
-                listType === 'folder' ? folderTitleChange : fileTitleChange
+                listType === "folder" ? folderTitleChange : fileTitleChange
               }
             />
           </div>
@@ -351,7 +342,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                 className="hover:dark:text-white dark:text-Neutrals/neutrals-7 transition-colors"
               />
             </TooltipComponent>
-            {listType === 'folder' && !isEditing && (
+            {listType === "folder" && !isEditing && (
               <TooltipComponent message="Add File">
                 <PlusIcon
                   onClick={addNewFile}
