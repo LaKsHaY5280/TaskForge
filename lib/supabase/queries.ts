@@ -262,6 +262,7 @@ export const getActiveProductsWithPrice = async () => {
         },
       },
     });
+    // console.log(res);
     if (res.length) return { data: res, error: null };
     return { data: [], error: null };
   } catch (error) {

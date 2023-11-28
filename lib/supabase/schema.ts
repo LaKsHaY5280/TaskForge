@@ -31,6 +31,11 @@ export const users = pgTable("users", {
   email: text("email"),
 });
 
+export const customers = pgTable("customers", {
+  id: uuid("id").primaryKey().notNull(),
+  stripeCustomerId: text("stripe_customer_id"),
+});
+
 export const pricingType = pgEnum("pricing_type", ["recurring", "one_time"]);
 export const pricingPlanInterval = pgEnum("pricing_plan_interval", [
   "year",

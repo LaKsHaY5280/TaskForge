@@ -13,7 +13,6 @@ export async function POST(request: Request) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-
     const customer = await createOrRetrieveCustomer({
       email: user?.email || '',
       uuid: user?.id || '',

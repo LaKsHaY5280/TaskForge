@@ -43,6 +43,13 @@
       "when": 1700481524995,
       "tag": "0005_familiar_meteorite",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1701082091250,
+      "tag": "0006_modern_ricochet",
+      "breakpoints": true
     }
   ]
 }

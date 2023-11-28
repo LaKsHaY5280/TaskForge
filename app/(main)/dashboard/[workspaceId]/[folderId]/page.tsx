@@ -10,7 +10,7 @@ const Folder = async ({ params }: { params: { folderId: string } }) => {
   if (error || !data.length) redirect("/dashboard");
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <QuillEditor
         dirType="folder"
         fileId={params.folderId}

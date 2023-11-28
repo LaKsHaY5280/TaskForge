@@ -56,7 +56,7 @@ import CypressProfileIcon from '../icons/cypressProfileIcon';
 import LogoutButton from '../global/logout-button';
 import Link from 'next/link';
 import { useSubscriptionModal } from '@/lib/providers/subscription-modal-provider';
-// import { postData } from '@/lib/utils';
+import { postData } from '@/lib/utils';
 
 const SettingsForm = () => {
   const { toast } = useToast();
@@ -76,20 +76,20 @@ const SettingsForm = () => {
 
   //WIP PAYMENT PORTAL
 
-  // const redirectToCustomerPortal = async () => {
-  //   setLoadingPortal(true);
-  //   try {
-  //     const { url, error } = await postData({
-  //       url: '/api/create-portal-link',
-  //     });
-  //     window.location.assign(url);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setLoadingPortal(false);
-  //   }
-  //   setLoadingPortal(false);
-  // };
-  //addcollborators
+  const redirectToCustomerPortal = async () => {
+    setLoadingPortal(true);
+    try {
+      const { url, error } = await postData({
+        url: '/api/create-portal-link',
+      });
+      window.location.assign(url);
+    } catch (error) {
+      console.log(error);
+      setLoadingPortal(false);
+    }
+    setLoadingPortal(false);
+  };
+  // addcollborators
   const addCollaborator = async (profile: User) => {
     if (!workspaceId) return;
     if (subscription?.status !== 'active' && collaborators.length >= 2) {
@@ -393,7 +393,7 @@ const SettingsForm = () => {
               variant={"secondary"}
               disabled={loadingPortal}
               className="text-sm"
-              // onClick={redirectToCustomerPortal}
+              onClick={redirectToCustomerPortal}
             >
               Manage Subscription
             </Button>
