@@ -10,6 +10,7 @@ import clsx from "clsx";
 import CustomCard from "@/components/landing-page/CustomCard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -168,11 +169,13 @@ const page = () => {
                   <p className="dark:text-washed-purple-800">
                     {card.description}
                   </p>
-                  <Button className="whitespace-nowrap w-full mt-4">
-                    {card.planType === PRICING_PLANS.proplan
-                      ? "Go Pro"
-                      : "Get Started"}
-                  </Button>
+                  <Link href={"/login"}>
+                    <Button className="whitespace-nowrap w-full mt-4">
+                      {card.planType === PRICING_PLANS.proplan
+                        ? "Go Pro"
+                        : "Get Started"}
+                    </Button>
+                  </Link>
                 </CardContent>
               }
               cardFooter={
